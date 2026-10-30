@@ -28,6 +28,10 @@ jobs:
       - name: Extract project ZIP
         run: unzip -o MiftahUlLughah_Project.zip -d .
 
+      - name: Fix missing import
+        run: |
+          sed -i '/^package .*;/a import android.graphics.drawable.GradientDrawable;' MiftahUlLughah/app/src/main/java/com/miftahullughah/app/MainActivity.java
+
       - name: Build APK
         run: |
           cd MiftahUlLughah
